@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 //        mMultiTypeAdapter.register(ObjectList.class, new GridLayoutItemViewBinder(Label.class,new LabelItemViewBinder(),4));
         mMultiTypeAdapter.register(Column.class, new ColumnItemViewBinder());
         mMultiTypeAdapter.register(AppList.class, new AppListItemViewBinder());
+//        mMultiTypeAdapter.register(ObjectList.class, new HorizontalItemViewBinder(App.class,new AppItemViewBinder()));
 
         recyclerView.setAdapter(mMultiTypeAdapter);
 
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         mItems.add(new AppList(appLists));
 
 //        //App数据,优化写法
+//
 //        List<Object> objects = new ArrayList<>();
 //        objects.add(new App(R.drawable.ic_docs_48dp, "Docs", "4.5"));
 //        objects.add(new App(R.drawable.ic_drive_48dp, "Drive", "3.5"));
