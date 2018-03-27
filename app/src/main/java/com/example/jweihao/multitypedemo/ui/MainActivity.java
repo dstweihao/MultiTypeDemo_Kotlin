@@ -43,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         mMultiTypeAdapter = new MultiTypeAdapter();
         //注册类型和View的对应关系
-        //RecyclerView嵌套RecyclerView,水平滑动，只需提供数据bean，初始化布局ItemViewBinder即可。
-        mMultiTypeAdapter.register(ObjectList.class, new HorizontalItemViewBinder(Label.class,new LabelItemViewBinder()));
+//        //RecyclerView嵌套RecyclerView,水平滑动，只需提供数据bean，初始化布局ItemViewBinder即可。
+//        mMultiTypeAdapter.register(ObjectList.class, new HorizontalItemViewBinder(Label.class,new LabelItemViewBinder()));
         //RecyclerView嵌套RecyclerView,网格布局，只需提供数据bean，初始化布局ItemViewBinder即可。
 //        mMultiTypeAdapter.register(ObjectList.class, new GridLayoutItemViewBinder(Label.class,new LabelItemViewBinder(),4));
+        mMultiTypeAdapter.register(LabelList.class, new LabelListItemViewBinder());
         mMultiTypeAdapter.register(Column.class, new ColumnItemViewBinder());
         mMultiTypeAdapter.register(AppList.class, new AppListItemViewBinder());
 //        mMultiTypeAdapter.register(ObjectList.class, new HorizontalItemViewBinder(App.class,new AppItemViewBinder()));
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         //初始化数据
         //标签数据
-        List<Object> labelList = new ArrayList<>();
+        List<Label> labelList = new ArrayList<>();
         labelList.add(new Label("排行榜"));
         labelList.add(new Label("游戏"));
         labelList.add(new Label("类别"));
@@ -63,7 +64,17 @@ public class MainActivity extends AppCompatActivity {
         labelList.add(new Label("抢先体验"));
         labelList.add(new Label("编辑精选"));
         labelList.add(new Label("付费内容"));
-        mItems.add(new ObjectList(labelList));
+        mItems.add(new LabelList(labelList));
+//        //标签数据
+//        List<Object> labelList = new ArrayList<>();
+//        labelList.add(new Label("排行榜"));
+//        labelList.add(new Label("游戏"));
+//        labelList.add(new Label("类别"));
+//        labelList.add(new Label("家庭"));
+//        labelList.add(new Label("抢先体验"));
+//        labelList.add(new Label("编辑精选"));
+//        labelList.add(new Label("付费内容"));
+//        mItems.add(new ObjectList(labelList));
 
 
         //添加栏目

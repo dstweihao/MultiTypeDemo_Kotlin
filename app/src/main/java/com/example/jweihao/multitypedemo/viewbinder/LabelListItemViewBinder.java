@@ -5,6 +5,7 @@ package com.example.jweihao.multitypedemo.viewbinder;
  */
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ import java.util.List;
 import me.drakeet.multitype.ItemViewBinder;
 import me.drakeet.multitype.MultiTypeAdapter;
 
-public abstract class LabelListItemViewBinder extends ItemViewBinder<LabelList, LabelListItemViewBinder.ViewHolder> {
+public class LabelListItemViewBinder extends ItemViewBinder<LabelList, LabelListItemViewBinder.ViewHolder> {
 
     private MultiTypeAdapter mMultiTypeAdapter;
 
@@ -39,9 +40,9 @@ public abstract class LabelListItemViewBinder extends ItemViewBinder<LabelList, 
         public ViewHolder(View itemView) {
             super(itemView);
             RecyclerView itemRecyclerView = itemView.findViewById(R.id.item_recyclerview);
-//            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext());
-//            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-            itemRecyclerView.setLayoutManager(setLayoutManager(itemView));
+            LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext());
+            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            itemRecyclerView.setLayoutManager(layoutManager);
 
             mMultiTypeAdapter = new MultiTypeAdapter();
             mMultiTypeAdapter.register(Label.class, new LabelItemViewBinder());
@@ -53,6 +54,4 @@ public abstract class LabelListItemViewBinder extends ItemViewBinder<LabelList, 
             mMultiTypeAdapter.notifyDataSetChanged();
         }
     }
-    //设置Item条目显示样式
-    public abstract RecyclerView.LayoutManager setLayoutManager(View itemView);
 }
