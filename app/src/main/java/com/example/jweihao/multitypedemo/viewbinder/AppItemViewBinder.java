@@ -26,7 +26,7 @@ public class AppItemViewBinder extends ItemViewBinder<App, AppItemViewBinder.Vie
     @NonNull
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        View view = inflater.inflate(R.layout.item_app_horizontal, parent, false);
+        View view = inflater.inflate(R.layout.item_app, parent, false);
         return new ViewHolder(view);
     }
 
@@ -41,6 +41,7 @@ public class AppItemViewBinder extends ItemViewBinder<App, AppItemViewBinder.Vie
                 Toast.makeText(mContext, item.getAppName(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

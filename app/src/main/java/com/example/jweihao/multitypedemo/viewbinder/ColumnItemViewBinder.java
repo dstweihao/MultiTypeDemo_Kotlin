@@ -31,7 +31,7 @@ public class ColumnItemViewBinder extends ItemViewBinder<Column, ColumnItemViewB
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Column column) {
+    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull final Column column) {
         holder.mColumn_red.setImageResource(column.getColimnImage());
         holder.mColumn_name.setText(column.getColumnName());
         holder.mColumn_more.setText(column.getMoreName());
@@ -39,7 +39,7 @@ public class ColumnItemViewBinder extends ItemViewBinder<Column, ColumnItemViewB
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "查看更多", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, column.getColumnName(), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -1,9 +1,7 @@
 package com.example.jweihao.multitypedemo.viewbinder;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.annotation.NonNull;
-import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,36 +11,35 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jweihao.multitypedemo.R;
-import com.example.jweihao.multitypedemo.bean.App;
 
-import org.w3c.dom.Text;
+import com.example.jweihao.multitypedemo.bean.Logo;
 
 import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by weihao on 2018/3/28.
  */
-public class AppItemVerticalItemViewBinder extends ItemViewBinder<App, AppItemVerticalItemViewBinder.ViewHolder> {
+public class LogoItemViewBinder extends ItemViewBinder<Logo, LogoItemViewBinder.ViewHolder> {
 
     private Context mContext;
 
     @NonNull
     @Override
-    protected AppItemVerticalItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        View view = inflater.inflate(R.layout.item_app_vertical, parent, false);
+    protected LogoItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
+        View view = inflater.inflate(R.layout.item_logo, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull AppItemVerticalItemViewBinder.ViewHolder holder, @NonNull final App item) {
-        holder.mImage.setImageResource(item.getAppImage());
-        holder.mName.setText(item.getAppName());
-        holder.mGrade.setText(item.getAppGrade());
+    protected void onBindViewHolder(@NonNull LogoItemViewBinder.ViewHolder holder, @NonNull final Logo item) {
+        holder.mImage.setImageResource(item.getLogoImage());
+        holder.mName.setText(item.getLogoName());
+        holder.mGrade.setText(item.getLogoGrade());
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(mContext, item.getAppName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, item.getLogoName(), Toast.LENGTH_SHORT).show();
             }
         });
 
