@@ -5,7 +5,6 @@ package com.example.jweihao.multitypedemo.viewbinder;
  */
 
 import android.content.Context;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,8 +17,6 @@ import android.widget.Toast;
 import com.example.jweihao.multitypedemo.R;
 import com.example.jweihao.multitypedemo.bean.App;
 
-import org.w3c.dom.Text;
-
 import me.drakeet.multitype.ItemViewBinder;
 
 public class AppItemViewBinder extends ItemViewBinder<App, AppItemViewBinder.ViewHolder> {
@@ -29,7 +26,7 @@ public class AppItemViewBinder extends ItemViewBinder<App, AppItemViewBinder.Vie
     @NonNull
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        View view = inflater.inflate(R.layout.item_app, parent, false);
+        View view = inflater.inflate(R.layout.item_app_horizontal, parent, false);
         return new ViewHolder(view);
     }
 

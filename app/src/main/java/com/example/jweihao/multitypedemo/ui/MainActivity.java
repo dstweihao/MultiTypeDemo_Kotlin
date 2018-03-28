@@ -11,13 +11,9 @@ import com.example.jweihao.multitypedemo.bean.AppList;
 import com.example.jweihao.multitypedemo.bean.Column;
 import com.example.jweihao.multitypedemo.bean.Label;
 import com.example.jweihao.multitypedemo.bean.LabelList;
-import com.example.jweihao.multitypedemo.bean.ObjectList;
-import com.example.jweihao.multitypedemo.viewbinder.AppItemViewBinder;
+import com.example.jweihao.multitypedemo.viewbinder.AppItemVerticalItemViewBinder;
 import com.example.jweihao.multitypedemo.viewbinder.AppListItemViewBinder;
 import com.example.jweihao.multitypedemo.viewbinder.ColumnItemViewBinder;
-import com.example.jweihao.multitypedemo.viewbinder.GridLayoutItemViewBinder;
-import com.example.jweihao.multitypedemo.viewbinder.HorizontalItemViewBinder;
-import com.example.jweihao.multitypedemo.viewbinder.LabelItemViewBinder;
 import com.example.jweihao.multitypedemo.viewbinder.LabelListItemViewBinder;
 
 import java.util.ArrayList;
@@ -50,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mMultiTypeAdapter.register(LabelList.class, new LabelListItemViewBinder());
         mMultiTypeAdapter.register(Column.class, new ColumnItemViewBinder());
         mMultiTypeAdapter.register(AppList.class, new AppListItemViewBinder());
+        mMultiTypeAdapter.register(App.class, new AppItemVerticalItemViewBinder());
 //        mMultiTypeAdapter.register(ObjectList.class, new HorizontalItemViewBinder(App.class,new AppItemViewBinder()));
 
         recyclerView.setAdapter(mMultiTypeAdapter);
@@ -86,19 +83,67 @@ public class MainActivity extends AppCompatActivity {
         ));
 
         //App数据
-        List<App> appLists = new ArrayList<>();
-        appLists.add(new App(R.drawable.ic_docs_48dp, "Docs", "4.5"));
-        appLists.add(new App(R.drawable.ic_drive_48dp, "Drive", "3.5"));
-        appLists.add(new App(R.drawable.ic_gmail_48dp, "Gmail", "2.8"));
-        appLists.add(new App(R.drawable.ic_google_48dp, "Google+", "4.9"));
-        appLists.add(new App(R.drawable.ic_hangouts_48dp, "Hangouts", "3.2"));
-        appLists.add(new App(R.drawable.ic_inbox_48dp, "Inbox", "2.1"));
-        appLists.add(new App(R.drawable.ic_keep_48dp, "Keep", "1.7"));
-        appLists.add(new App(R.drawable.ic_messenger_48dp, "Messenger", "4.7"));
-        appLists.add(new App(R.drawable.ic_photos_48dp, "Photos", "3.5"));
-        appLists.add(new App(R.drawable.ic_sheets_48dp, "Sheets", "3.6"));
-        appLists.add(new App(R.drawable.ic_slides_48dp, "Slides", "4.7"));
-        mItems.add(new AppList(appLists));
+        List<App> appList1 = new ArrayList<>();
+        appList1.add(new App(R.drawable.icon_weibo, "WeiBo", "4.7"));
+        appList1.add(new App(R.drawable.icon_twitter, "Twitter", "4.7"));
+        appList1.add(new App(R.drawable.icon_wechat, "WeChat", "4.7"));
+        appList1.add(new App(R.drawable.icon_qq, "QQ", "4.7"));
+        appList1.add(new App(R.drawable.icon_alipay, "AliPay", "3.6"));
+        appList1.add(new App(R.drawable.icon_facebook, "FaceBook", "4.7"));
+        appList1.add(new App(R.drawable.icon_qzone, "QZone", "4.7"));
+        appList1.add(new App(R.drawable.icon_ins, "Instagram", "4.5"));
+        appList1.add(new App(R.drawable.icon_momo, "MOMO", "3.5"));
+        appList1.add(new App(R.drawable.icon_mixi, "MiXi", "2.8"));
+        appList1.add(new App(R.drawable.icon_linkedin, "Linkedin", "4.9"));
+        appList1.add(new App(R.drawable.icon_line, "Line", "3.2"));
+        mItems.add(new AppList(appList1));
+
+
+        //添加栏目
+        mItems.add(new Column(
+                R.drawable.shape_red_rectangles,
+                "根据您的近期活动",
+                "更多",
+                R.mipmap.tv_right
+        ));
+
+        //App数据
+        List<App> appList2 = new ArrayList<>();
+        appList2.add(new App(R.drawable.icon_github, "GitHub", "5.0"));
+        appList2.add(new App(R.drawable.icon_csdn, "CSDN", "3.5"));
+        appList2.add(new App(R.drawable.icon_google, "Google+", "4.7"));
+        appList2.add(new App(R.drawable.icon_pinterest, "Pinterest", "4.7"));
+        appList2.add(new App(R.drawable.icon_pixiv, "Pixiv", "4.7"));
+        appList2.add(new App(R.drawable.icon_renren, "Renren", "4.7"));
+        appList2.add(new App(R.drawable.icon_skype, "Skype", "4.7"));
+        appList2.add(new App(R.drawable.icon_tumblr, "Tumblr", "4.7"));
+        appList2.add(new App(R.drawable.icon_wechat_friend, "Wechat-Friend", "4.7"));
+        appList2.add(new App(R.drawable.icon_vk, "VK", "4.7"));
+        appList2.add(new App(R.drawable.icon_xiaoenai, "XiaoEnAi", "4.7"));
+        mItems.add(new AppList(appList2));
+
+
+        //添加栏目
+        mItems.add(new Column(
+                R.drawable.shape_red_rectangles,
+                "工具和实用工具",
+                "更多",
+                R.mipmap.tv_right
+        ));
+
+        //App数据
+
+        mItems.add(new App(R.drawable.ic_docs_48dp, "Docs", "4.5"));
+        mItems.add(new App(R.drawable.ic_drive_48dp, "Drive", "3.5"));
+        mItems.add(new App(R.drawable.ic_gmail_48dp, "Gmail", "2.8"));
+        mItems.add(new App(R.drawable.ic_google_48dp, "Google+", "4.9"));
+        mItems.add(new App(R.drawable.ic_hangouts_48dp, "Hangouts", "3.2"));
+        mItems.add(new App(R.drawable.ic_inbox_48dp, "Inbox", "2.1"));
+        mItems.add(new App(R.drawable.ic_keep_48dp, "Keep", "1.7"));
+        mItems.add(new App(R.drawable.ic_messenger_48dp, "Messenger", "4.7"));
+        mItems.add(new App(R.drawable.ic_photos_48dp, "Photos", "3.5"));
+        mItems.add(new App(R.drawable.ic_sheets_48dp, "Sheets", "3.6"));
+        mItems.add(new App(R.drawable.ic_slides_48dp, "Slides", "4.7"));
 
 //        //App数据,优化写法
 //
