@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -26,7 +28,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     //RecyclerView多布局类型展示MultiType库
-    implementation 'me.drakeet.multitype:multitype:3.4.4'
+//    implementation 'me.drakeet.multitype:multitype:3.4.4'
+    implementation 'me.drakeet.multitype:multitype-kotlin:3.4.4'
     //    //MultiType内部应用了recyclerview-v7:xxxx，如果不想使用这个版本，可以使用exclude将它排除掉，再
     //    //自行引入你选择的版本，示例如下：
     //    compile('me.drakeet.multitype:multitype:3.4.4',{exclude group 'com.android.support'})
@@ -35,4 +38,8 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.0.2'
     //GravitySnaphelper
     implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
